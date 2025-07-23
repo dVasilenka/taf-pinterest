@@ -3,7 +3,7 @@ package com.pinterest.UI;
 import org.junit.jupiter.api.*;
 
 
-class PinterestTest extends BaseTest {
+class LoginTest extends BaseTest {
      private static String emailIsNotFilledAlert = null;
 
     @Test
