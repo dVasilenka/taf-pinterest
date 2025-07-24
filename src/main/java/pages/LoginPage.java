@@ -28,7 +28,7 @@ public class LoginPage {
 
     public void clickOnFieldAndEnterPassword(String password) {
         passwordField.enterPassword(password);
-        logger.info("Вызываем такой то метод");
+        logger.info("Вводим пароль : " + password);
     }
 
     public void clickOnEnterButton() {
