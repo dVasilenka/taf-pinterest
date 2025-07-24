@@ -35,4 +35,7 @@ public abstract class BaseElements {
     public String getElementText(){
         return getElement().getText();
     }
+    public String getCssValue(String attribute){
+        return getElement().getCssValue(attribute);
+    }
 }
