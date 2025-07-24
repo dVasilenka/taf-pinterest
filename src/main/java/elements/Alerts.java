@@ -10,11 +10,8 @@ public class Alerts extends BaseElements {
     public boolean alertIsDisplayed() {
         return elementIsDisplayed();
     }
-    public String alertIsNotDisplayed() {
-        return getElementText();
-    }
 
-    public String getAlertCssValue(String attribute){
+    public String getAlertCssValue(String attribute) {
         return getCssValue(attribute);
     }
 }

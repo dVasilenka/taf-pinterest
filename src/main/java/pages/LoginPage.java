@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import utils.WaitUtils;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
     private final static EmailField emailField = new EmailField(By.xpath("//input[@data-test-id='emailInputField']"));
     private final static PasswordField passwordField = new PasswordField(By.xpath("//input[@data-test-id='passwordInputField']"));
     private final static Button enterButton = new Button(By.xpath("//button[@type='submit']"));
@@ -16,6 +16,10 @@ public class LoginPage {
     private final static Alerts invalidEmailAlert = new Alerts(By.xpath("//span[@id='email-error']"));
     private final static Form loginForm = new Form(By.xpath("//div[@data-test-id='login-modal-default']"));
     private final static String COLOR = "color";
+
+    public LoginPage() {
+        super(By.xpath(loginForm.toString()));
+    }
 
 
     public void clickOnFieldAndEnterEmail(String email) {
@@ -63,7 +67,7 @@ public class LoginPage {
         return invalidPasswordAlert.alertIsDisplayed();
     }
 
-    public String getColorValue(){
+    public String getColorValue() {
         WaitUtils.waitForElements(condition -> emailIsNotFilledAlert.alertIsDisplayed());
         return emailIsNotFilledAlert.getAlertCssValue(COLOR);
     }

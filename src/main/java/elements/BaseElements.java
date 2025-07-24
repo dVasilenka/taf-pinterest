@@ -4,8 +4,6 @@ import browser.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
 public abstract class BaseElements {
     private final By locator;
 
@@ -25,17 +23,15 @@ public abstract class BaseElements {
         return getElement().isDisplayed();
     }
 
-    public List<WebElement> getListElements() {
-        return getElement().findElements(locator);
-    }
-
     public void enterValue(String value) {
         getElement().sendKeys(value);
     }
-    public String getElementText(){
+
+    public String getElementText() {
         return getElement().getText();
     }
-    public String getCssValue(String attribute){
+
+    public String getCssValue(String attribute) {
         return getElement().getCssValue(attribute);
     }
 }

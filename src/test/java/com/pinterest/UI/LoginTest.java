@@ -8,8 +8,8 @@ class LoginTest extends BaseTest {
 
     @Test
     void loginWithEmptyEmailTest() {
-        loginPage.clickOnFieldAndEnterEmail("");
-        loginPage.clickOnFieldAndEnterPassword("Qazxc1478!");
+        loginPage.clickOnFieldAndEnterEmail(EMPTY_EMAIL);
+        loginPage.clickOnFieldAndEnterPassword(VALID_PASSWORD);
         loginPage.clickOnEnterButton();
         emailIsNotFilledAlert = loginPage.getTextEmailIsNotFilledAlert();
         Assertions.assertTrue(loginPage.emailIsNotFilledAlertIsDisplayed(), "Alert is not displayed");
@@ -17,8 +17,8 @@ class LoginTest extends BaseTest {
 
     @Test
     void loginWithoutPasswordTest() {
-        loginPage.clickOnFieldAndEnterEmail("test.test@testcom");
-        loginPage.clickOnFieldAndEnterPassword("");
+        loginPage.clickOnFieldAndEnterEmail(VALID_EMAIL);
+        loginPage.clickOnFieldAndEnterPassword(EMPTY_PASSWORD);
         loginPage.clickOnEnterButton();
         Assertions.assertTrue(loginPage.wrongEmailAlertIsDisplayed(), "Alert is not displayed");
         String wrongEmailAlert = loginPage.getWrongEmailAlert();
@@ -27,16 +27,16 @@ class LoginTest extends BaseTest {
 
     @Test
     void loginWithInvalidPasswordTest() {
-        loginPage.clickOnFieldAndEnterEmail("test.test@test.com");
-        loginPage.clickOnFieldAndEnterPassword("Q1235");
+        loginPage.clickOnFieldAndEnterEmail(VALID_EMAIL);
+        loginPage.clickOnFieldAndEnterPassword(INVALID_PASSWORD);
         loginPage.clickOnEnterButton();
         Assertions.assertTrue(loginPage.invalidPasswordAlertIsDisplayed(), "Alert is not displayed");
     }
 
     @Test
     void loginWithInvalidEmailTest() {
-        loginPage.clickOnFieldAndEnterEmail("1");
-        loginPage.clickOnFieldAndEnterPassword("Qazxc1478!");
+        loginPage.clickOnFieldAndEnterEmail(INVALID_EMAIL);
+        loginPage.clickOnFieldAndEnterPassword(VALID_PASSWORD);
         loginPage.clickOnEnterButton();
         emailIsNotFilledAlert = loginPage.getTextEmailIsNotFilledAlert();
         Assertions.assertTrue(loginPage.checkInvalidEmailAlert(), "Alert is not displayed");

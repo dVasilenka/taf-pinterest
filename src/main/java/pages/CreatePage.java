@@ -1,15 +1,12 @@
-package com.pinterest.api;
+package pages;
 
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 
-
 public class CreatePage {
     private final static String LOGIN = "\"test@test.com\"";
     private final static String PASSWORD = "\"Qazxc1478\"";
-
-
 
     public static Response getResponseLoginRequest() {
 
@@ -26,8 +23,6 @@ public class CreatePage {
 
         return given()
                 .header("Content-Type", "application/x-www-form-urlencoded")
-              //  .header("Content-Length", response.getHeader("Content_Length"))
-               // .header("Host", "<calculated when request is sent>")
                 .header("accept-language", "ru,en;q=0.9,en-GB;q=0.8,en-US;q=0.7")
                 .header("x-csrftoken", "25e33405e8dd0100929ce9462f354ac2")
                 .header("Cookie", "csrftoken=25e33405e8dd0100929ce9462f354ac2; _pinterest_sess=TWc9PSZwTzJwUlEyQndNN3FXU3JiVnlESEpYNVlFZUxSYWNXZURkSnkwUm1OT3RWWVlabGQvNmYyZG85cWFTOFRRcDhQclZneWN0dXNsQW5EcnM0NE5EOWV2ek5tTzFOTzZJRkdwVjNtdGs2VHhCaz0mUllFdVBKTytkZlZQWEpZNHlSZC9qTmNNVGJ3PQ==; _auth=0; _routing_id=\"101785fc-7fd6-4f14-8b8d-42d909f3c7a8\"; sessionFunnelEventLogged=1; g_state={\"i_p\":1750270149886,\"i_l\":1}; _b=\"AYmUNK75m95ECodU1Bfo1BH+uHO8gUgyHVCaTB4aW27AkmK5XG0JbG4JLQ8dhWe6cYU=\"")
@@ -55,6 +50,7 @@ public class CreatePage {
     public static String getPassword(Response response) {
         return response.path("resource.options.password");
     }
+
     public static String getErrorMessage(Response response) {
         return response.path("resource_response.error.message");
     }
