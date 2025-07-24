@@ -13,4 +13,8 @@ public class Alerts extends BaseElements {
     public String alertIsNotDisplayed() {
         return getElementText();
     }
+
+    public String getAlertCssValue(String attribute){
+        return getCssValue(attribute);
+    }
 }
