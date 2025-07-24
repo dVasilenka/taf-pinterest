@@ -3,7 +3,7 @@ package com.pinterest.UI;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class PinterestTest extends BaseTest {
+public class LoginTest extends BaseTest {
     String emailIsNotFilledAlert = null;
     @Test
     public void loginTest() {
