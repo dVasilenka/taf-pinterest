@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Browser {
-    private static WebDriver driver;
+    public static WebDriver driver;
 
     public static WebDriver getDriver() {
         if (driver == null) {
@@ -14,5 +14,12 @@ public class Browser {
     }
 
     private Browser() {
+    }
+
+    public static void quit() {
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        }
     }
 }
